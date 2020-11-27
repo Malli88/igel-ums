@@ -43,7 +43,7 @@ if {$force_conservative} {
 
 
 set timeout -1
-spawn /root/setup-igel-ums-linux_6.06.100.bin
+spawn /root/setup-igel-ums-linux_*
 match_max 100000
 
 expect eof

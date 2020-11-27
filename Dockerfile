@@ -57,14 +57,17 @@ RUN apt-get update && apt-get -y upgrade;\
     apt-get -y install diffutils;\
     apt-get -y install patch sudo xterm
 
+#Download latest UMS
+RUN wget http://fwu.igel.com/files/IGEL_UNIVERSAL_MANAGEMENT_SUITE/LINUX/setup-igel-ums-linux_6.06.100.bin -O /root/setup-igel-ums-linux_6.06.100.bin
+
 #Config sshd
 RUN patch -d /etc/ssh < /root/sshd_config.patch
 RUN useradd -m -s/bin/bash -G staff,users,sudo igel
 RUN /bin/echo -e "Igel2020\nIgel2020" | passwd igel
 
 #Install UMS
-RUN chmod 777 /root/setup-igel-ums-linux_6.06.100.bin
-RUN /root/script.exp
+RUN chmod 777 /root/setup-igel-ums-linux_*
+#RUN /root/script.exp
 
 #Expose Ports of container
 EXPOSE 22 8443 30001 9080
