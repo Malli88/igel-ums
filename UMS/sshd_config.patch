@@ -1,0 +1,11 @@
+--- sshd_config 2019-02-25 01:21:29.234406899 +0000
++++ sshd_config_jhf     2019-02-25 01:21:58.834407115 +0000
+@@ -88,7 +88,7 @@
+ #GatewayPorts no
+ X11Forwarding yes
+ #X11DisplayOffset 10
+-#X11UseLocalhost yes
++X11UseLocalhost no
+ #PermitTTY yes
+ PrintMotd no
+ #PrintLastLog yes
